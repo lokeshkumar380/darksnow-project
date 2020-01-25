@@ -1,0 +1,32 @@
+version: '3'
+services:
+        my_app:
+                container_name: darksnow
+                image: darksnow
+#                depends_on:
+#                  - database
+                ports:
+                        - 3000:3000
+                build:
+                        context: application
+                volumes:
+                - $HOME/.aws:/root/.aws
+                networks:
+                        - net
+#        release:
+#                image: 691016621062.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
+#                build:
+#                        context: application
+
+#        database:
+#                container_name: dynamodb-local
+#                image: amazon/dynamodb-local
+#                command: -jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/
+#                volumes:
+#                        - ./dynamodb_data:/home/dynamodblocal/data
+#                ports:
+#                        - "8095:8000"
+
+
+networks:
+        net: 
